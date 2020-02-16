@@ -1,0 +1,249 @@
+{
+  "pizzaData": {
+    "size": ["small", "medium", "large"],
+    "sizeCM": { "small": 25, "medium": 30, "large": 35 },
+    "ingridientsAmount": {
+      "fillings": { "small": 12, "medium": 15, "large": 18 },
+      "base": 1,
+      "sauces": 3,
+      "additional": 2
+    }
+  },
+  "base": [
+    {
+      "ingridient": "thinDough",
+      "price": 10,
+      "weight": { "small": 70, "medium": 85, "large": 100 }
+    },
+    {
+      "ingridient": "regularDough",
+      "price": 10,
+      "weight": { "small": 70, "medium": 85, "large": 100 }
+    }
+  ],
+  "fillings": {
+    "vegetables": [
+      {
+        "ingridient": "olives",
+        "price": 7,
+        "weight": 25
+      },
+      {
+        "ingridient": "mushrooms",
+        "price": 7,
+        "weight": 25
+      },
+      {
+        "ingridient": "tomato",
+        "price": 7,
+        "weight": 25
+      },
+      {
+        "ingridient": "pepper",
+        "price": 7,
+        "weight": 25
+      },
+      {
+        "ingridient": "onion",
+        "price": 7,
+        "weight": 25
+      }
+    ],
+    "meat": [
+      {
+        "ingridient": "hen",
+        "price": 10,
+        "weight": 25
+      },
+      {
+        "ingridient": "beef",
+        "price": 10,
+        "weight": 25
+      },
+      {
+        "ingridient": "salami",
+        "price": 10,
+        "weight": 25
+      },
+      {
+        "ingridient": "huntingSausages",
+        "price": 10,
+        "weight": 25
+      },
+      {
+        "ingridient": "bacon",
+        "price": 10,
+        "weight": 25
+      }
+    ],
+    "seafoods": [
+      {
+        "ingridient": "anchovies",
+        "price": 10,
+        "weight": 25
+      },
+      {
+        "ingridient": "mussels",
+        "price": 10,
+        "weight": 25
+      },
+      {
+        "ingridient": "shrimp",
+        "price": 10,
+        "weight": 25
+      },
+      {
+        "ingridient": "squid",
+        "price": 10,
+        "weight": 25
+      },
+      {
+        "ingridient": "salmon",
+        "price": 10,
+        "weight": 25
+      }
+    ],
+    "cheeses": [
+      {
+        "ingridient": "mozzarella",
+        "price": 10,
+        "weight": 25
+      },
+      {
+        "ingridient": "brie",
+        "price": 10,
+        "weight": 25
+      },
+      {
+        "ingridient": "parmesan",
+        "price": 10,
+        "weight": 25
+      },
+      {
+        "ingridient": "cheder",
+        "price": 10,
+        "weight": 25
+      },
+      {
+        "ingridient": "mazdam",
+        "price": 10,
+        "weight": 25
+      }
+    ],
+    "fruits": [
+      {
+        "ingridient": "pear",
+        "price": 10,
+        "weight": 25
+      },
+      {
+        "ingridient": "orange",
+        "price": 10,
+        "weight": 25
+      },
+      {
+        "ingridient": "pumpkin",
+        "price": 10,
+        "weight": 25
+      },
+      {
+        "ingridient": "cannedPeach",
+        "price": 10,
+        "weight": 25
+      },
+      {
+        "ingridient": "cannedPineapple",
+        "price": 10,
+        "weight": 25
+      }
+    ],
+    "herbs": [
+      {
+        "ingridient": "spinach",
+        "price": 5,
+        "weight": 10
+      },
+      {
+        "ingridient": "arugula",
+        "price": 5,
+        "weight": 10
+      },
+      {
+        "ingridient": "basil",
+        "price": 5,
+        "weight": 10
+      },
+      {
+        "ingridient": "cilantro",
+        "price": 5,
+        "weight": 10
+      }
+    ]
+  },
+  "sauces": {
+    "regularSauces": [
+      {
+        "ingridient": "ketchup",
+        "price": 5,
+        "weight": 20
+      },
+      {
+        "ingridient": "BBQ",
+        "price": 10,
+        "weight": 20
+      },
+      {
+        "ingridient": "pesto",
+        "price": 5
+      },
+      {
+        "ingridient": "garlicSouce",
+        "price": 5,
+        "weight": 20
+      },
+      {
+        "ingridient": "tartarus",
+        "price": 5,
+        "weight": 20
+      }
+    ],
+    "sweetSauces": [
+      {
+        "ingridient": "orangeSauce",
+        "price": 5,
+        "weight": 20
+      },
+      {
+        "ingridient": "sweetChili",
+        "price": 5,
+        "weight": 20
+      }
+    ],
+    "hotSauces": [
+      {
+        "ingridient": "hotChili",
+        "price": 5,
+        "weight": 20
+      },
+      {
+        "ingridient": "mustard",
+        "price": 5,
+        "weight": 20
+      }
+    ]
+  },
+  "additional": {
+    "boards": [
+      {
+        "ingridient": "philadelphiaBoard",
+        "price": 5,
+        "weight": 10
+      },
+      {
+        "ingridient": "sausageBoard",
+        "price": 5,
+        "weight": 10
+      }
+    ]
+  }
+}
