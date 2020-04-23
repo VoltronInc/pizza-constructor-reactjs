@@ -34,10 +34,10 @@ export default function ReviewPizza() {
   const classes = useReviewStyles();
   const { t } = useTranslation();
 
-  const cb = ({ ingridient, price, weight, portion }) => (
-    <ListItem className={classes.listItem} key={ingridient}>
+  const cb = ({ name, price, weight, portion }) => (
+    <ListItem className={classes.listItem} key={name}>
       <ListItemText
-        primary={t(ingridient)}
+        primary={t(name)}
         secondary={`${portion * weight}${t("g")}`}
       />
       <Typography variant="body2">{`${portion * price}${t(

@@ -3,13 +3,13 @@ import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import { OuterContainer, Header, HeaderTitle, InnerContainer } from "./styles";
 
-const Template = ({ children, title , bg }) => {
+const Template = ({ children, title, bg }) => {
   const { t } = useTranslation();
 
-  const currentPageTitle = useMemo(() => title && t(title) || t("homepageTitle"), [
-    title,
-    t,
-  ]);
+  const currentPageTitle = useMemo(
+    () => (title && t(title)) || t("homepageTitle"),
+    [title, t]
+  );
 
   return (
     <OuterContainer data-testid="appRoutes">

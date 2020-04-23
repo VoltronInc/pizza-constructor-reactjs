@@ -10,9 +10,7 @@ import CheckboxGroupsSection from "../../library/components/CheckboxGroupsSectio
 import { Button } from "@material-ui/core";
 
 const getTotalAmount = (arr = []) => {
-  return arr
-    .map(({ portion }) => portion)
-    .reduce((sum, item) => sum + item, 0);
+  return arr.map(({ portion }) => portion).reduce((sum, item) => sum + item, 0);
 };
 
 export default function Constructor(props) {
@@ -29,17 +27,20 @@ export default function Constructor(props) {
     value: item,
   }));
 
-  const baseRadioChoices = base.map(({ ingridient, weight, price }) => {
+  const baseRadioChoices = base.map(({ name, weight, price }) => {
     weight = weight[order.size];
+    price = price[order.size];
 
     return {
-      label: `${t(ingridient)} (${weight}${t("g")}) ${price}${t("currency")}`,
-      value: { ingridient, weight, price },
+      label: `${t(name)} (${weight}${t("g")}) ${price}${t("currency")}`,
+      value: { name, weight, price },
     };
   });
 
-  const allFillingsChose = getTotalAmount(order.fillings) === ingridientsAmount.fillings[order.size];
-  const allSaucesChose = getTotalAmount(order.sauces) === ingridientsAmount.sauces;
+  const allFillingsChose =
+    getTotalAmount(order.fillings) === ingridientsAmount.fillings[order.size];
+  const allSaucesChose =
+    getTotalAmount(order.sauces) === ingridientsAmount.sauces;
 
   const disableSubmit = !(allFillingsChose && allSaucesChose);
 
@@ -74,16 +75,26 @@ export default function Constructor(props) {
         group="additional"
         inputNumericMax={ingridientsAmount.additional}
       />
-      <Trans>totalWeight</Trans>{order.totalWeight}{t("g")}
+      <Trans>totalWeight</Trans>
+      {order.totalWeight}
+      {t("g")}
       <br />
-      <Trans>totalCoast</Trans>{order.totalCoast}{t("currency")}
+      <Trans>totalCoast</Trans>
+      {order.totalCoast}
+      {t("currency")}
       <br />
-      {disableSubmit ?
-      <>
-      <Trans>chooseToSubmit</Trans>
-      <Button variant="contained" color="primary" disabled href="/checkout"><Trans>next</Trans></Button>
-      </>
-      : <Button variant="contained" color="primary" href="/checkout"><Trans>next</Trans></Button>}
+      {disableSubmit ? (
+        <>
+          <Trans>chooseToSubmit</Trans>
+          <Button variant="contained" color="primary" disabled href="/checkout">
+            <Trans>next</Trans>
+          </Button>
+        </>
+      ) : (
+        <Button variant="contained" color="primary" href="/checkout">
+          <Trans>next</Trans>
+        </Button>
+      )}
     </Template>
   );
 }

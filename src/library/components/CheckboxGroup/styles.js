@@ -1,7 +1,8 @@
 import styled, { css } from "styled-components";
 
 export const CollapsibleWrapper = styled.span`
-  .Collapsible__trigger: { // doesn't work
+  .collapsible__trigger: {
+    // doesn't work
     cursor: pointer;
   }
   background: white;
@@ -9,5 +10,5 @@ export const CollapsibleWrapper = styled.span`
   margin: 5px 0px;
   width: 48%;
   border-radius: 5px;
-  float: left; 
+  float: left;
 `;

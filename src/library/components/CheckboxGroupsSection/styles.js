@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { vars as sVars } from '../../../globalStyles';
+import { vars as sVars } from "../../../globalStyles";
 
-export const SectionWrapper= styled.div`
+export const SectionWrapper = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: space-between;

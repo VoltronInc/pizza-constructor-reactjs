@@ -4,7 +4,7 @@ import CheckoutForm from "../../library/components/CheckoutForm";
 
 const Checkout = () => {
   return (
-    <Template title="checkoutPage" bg='none'>
+    <Template title="checkoutPage" bg="none">
       <CheckoutForm />
     </Template>
   );

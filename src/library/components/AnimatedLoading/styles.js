@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
-import { vars as sVars } from '../../../globalStyles';
+import styled, { css } from "styled-components";
+import { vars as sVars } from "../../../globalStyles";
 import optSlice from "../../../assets/img/slice_opt.png";
 
 export const CardsWrapper = styled.div`
@@ -44,7 +44,7 @@ export const Cards = styled.div`
 `;
 
 const Card = css`
-  content: '';
+  content: "";
   width: 215px;
   height: 220px;
   transform-origin: center bottom;

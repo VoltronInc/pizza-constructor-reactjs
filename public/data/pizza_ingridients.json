@@ -1,180 +1,196 @@
 {
-  "pizzaData": {
-    "size": ["small", "medium", "large"],
-    "sizeCM": { "small": 25, "medium": 30, "large": 35 },
-    "ingridientsAmount": {
-      "fillings": { "small": 12, "medium": 15, "large": 18 },
-      "base": 1,
-      "sauces": 3,
-      "additional": 2
-    }
-  },
   "base": [
     {
-      "ingridient": "thinDough",
-      "price": 10,
-      "weight": { "small": 70, "medium": 85, "large": 100 }
+      "name": "thinDough",
+      "price": {
+        "small": 10,
+        "medium": 20,
+        "large": 30
+      },
+      "size": {
+        "small": 25,
+        "medium": 30,
+        "large": 35
+      },
+      "weight": {
+        "small": 70,
+        "medium": 85,
+        "large": 100
+      }
     },
     {
-      "ingridient": "regularDough",
-      "price": 10,
-      "weight": { "small": 70, "medium": 85, "large": 100 }
+      "name": "regularDough",
+      "price": {
+        "small": 10,
+        "medium": 20,
+        "large": 30
+      },
+      "size": {
+        "small": 25,
+        "medium": 30,
+        "large": 35
+      },
+      "weight": {
+        "small": 70,
+        "medium": 85,
+        "large": 100
+      }
     }
   ],
   "fillings": {
     "vegetables": [
       {
-        "ingridient": "olives",
+        "name": "olives",
         "price": 7,
         "weight": 25
       },
       {
-        "ingridient": "mushrooms",
+        "name": "mushrooms",
         "price": 7,
         "weight": 25
       },
       {
-        "ingridient": "tomato",
+        "name": "tomato",
         "price": 7,
         "weight": 25
       },
       {
-        "ingridient": "pepper",
+        "name": "pepper",
         "price": 7,
         "weight": 25
       },
       {
-        "ingridient": "onion",
+        "name": "onion",
         "price": 7,
         "weight": 25
       }
     ],
     "meat": [
       {
-        "ingridient": "hen",
+        "name": "hen",
         "price": 10,
         "weight": 25
       },
       {
-        "ingridient": "beef",
+        "name": "beef",
         "price": 10,
         "weight": 25
       },
       {
-        "ingridient": "salami",
+        "name": "salami",
         "price": 10,
         "weight": 25
       },
       {
-        "ingridient": "huntingSausages",
+        "name": "huntingSausages",
         "price": 10,
         "weight": 25
       },
       {
-        "ingridient": "bacon",
+        "name": "bacon",
         "price": 10,
         "weight": 25
       }
     ],
     "seafoods": [
       {
-        "ingridient": "anchovies",
+        "name": "anchovies",
         "price": 10,
         "weight": 25
       },
       {
-        "ingridient": "mussels",
+        "name": "mussels",
         "price": 10,
         "weight": 25
       },
       {
-        "ingridient": "shrimp",
+        "name": "shrimp",
         "price": 10,
         "weight": 25
       },
       {
-        "ingridient": "squid",
+        "name": "squid",
         "price": 10,
         "weight": 25
       },
       {
-        "ingridient": "salmon",
+        "name": "salmon",
         "price": 10,
         "weight": 25
       }
     ],
     "cheeses": [
       {
-        "ingridient": "mozzarella",
+        "name": "mozzarella",
         "price": 10,
         "weight": 25
       },
       {
-        "ingridient": "brie",
+        "name": "brie",
         "price": 10,
         "weight": 25
       },
       {
-        "ingridient": "parmesan",
+        "name": "parmesan",
         "price": 10,
         "weight": 25
       },
       {
-        "ingridient": "cheder",
+        "name": "cheder",
         "price": 10,
         "weight": 25
       },
       {
-        "ingridient": "mazdam",
+        "name": "mazdam",
         "price": 10,
         "weight": 25
       }
     ],
     "fruits": [
       {
-        "ingridient": "pear",
+        "name": "pear",
         "price": 10,
         "weight": 25
       },
       {
-        "ingridient": "orange",
+        "name": "orange",
         "price": 10,
         "weight": 25
       },
       {
-        "ingridient": "pumpkin",
+        "name": "pumpkin",
         "price": 10,
         "weight": 25
       },
       {
-        "ingridient": "cannedPeach",
+        "name": "cannedPeach",
         "price": 10,
         "weight": 25
       },
       {
-        "ingridient": "cannedPineapple",
+        "name": "cannedPineapple",
         "price": 10,
         "weight": 25
       }
     ],
     "herbs": [
       {
-        "ingridient": "spinach",
+        "name": "spinach",
         "price": 5,
         "weight": 10
       },
       {
-        "ingridient": "arugula",
+        "name": "arugula",
         "price": 5,
         "weight": 10
       },
       {
-        "ingridient": "basil",
+        "name": "basil",
         "price": 5,
         "weight": 10
       },
       {
-        "ingridient": "cilantro",
+        "name": "cilantro",
         "price": 5,
         "weight": 10
       }
@@ -183,50 +199,50 @@
   "sauces": {
     "regularSauces": [
       {
-        "ingridient": "ketchup",
+        "name": "ketchup",
         "price": 5,
         "weight": 20
       },
       {
-        "ingridient": "BBQ",
+        "name": "BBQ",
         "price": 10,
         "weight": 20
       },
       {
-        "ingridient": "pesto",
+        "name": "pesto",
         "price": 5
       },
       {
-        "ingridient": "garlicSouce",
+        "name": "garlicSouce",
         "price": 5,
         "weight": 20
       },
       {
-        "ingridient": "tartarus",
+        "name": "tartarus",
         "price": 5,
         "weight": 20
       }
     ],
     "sweetSauces": [
       {
-        "ingridient": "orangeSauce",
+        "name": "orangeSauce",
         "price": 5,
         "weight": 20
       },
       {
-        "ingridient": "sweetChili",
+        "name": "sweetChili",
         "price": 5,
         "weight": 20
       }
     ],
     "hotSauces": [
       {
-        "ingridient": "hotChili",
+        "name": "hotChili",
         "price": 5,
         "weight": 20
       },
       {
-        "ingridient": "mustard",
+        "name": "mustard",
         "price": 5,
         "weight": 20
       }
@@ -235,12 +251,12 @@
   "additional": {
     "boards": [
       {
-        "ingridient": "philadelphiaBoard",
+        "name": "philadelphiaBoard",
         "price": 5,
         "weight": 10
       },
       {
-        "ingridient": "sausageBoard",
+        "name": "sausageBoard",
         "price": 5,
         "weight": 10
       }

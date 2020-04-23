@@ -15,11 +15,11 @@ import { ORDER_ACTIONS } from "../../../engine/OrderReducer";
 
 export default function DetailsForm() {
   const [order, dispatch] = useContext(OrderContext);
-  const { checkout } = order;
+  const { user } = order;
   const { t } = useTranslation();
 
   const updateCheckout = (e, key) => {
-    const payload = { ...checkout, [key]: e.target.value };
+    const payload = { ...user, [key]: e.target.value };
     dispatch({ type: ORDER_ACTIONS.UPDATE_CHECKOUT, payload });
   };
   return (
@@ -32,7 +32,7 @@ export default function DetailsForm() {
           <TextField
             required
             name="firstName"
-            defaultValue={checkout.firstName}
+            defaultValue={user.firstName}
             onChange={(e) => updateCheckout(e, "firstName")}
             label={t("firstName")}
             fullWidth
@@ -42,7 +42,7 @@ export default function DetailsForm() {
           <TextField
             required
             name="lastName"
-            defaultValue={checkout.lastName}
+            defaultValue={user.lastName}
             onChange={(e) => updateCheckout(e, "lastName")}
             label={t("lastName")}
             fullWidth
@@ -52,7 +52,7 @@ export default function DetailsForm() {
           <TextField
             required
             name="address"
-            defaultValue={checkout.address}
+            defaultValue={user.address}
             onChange={(e) => updateCheckout(e, "address")}
             label={t("address")}
             fullWidth
@@ -61,7 +61,7 @@ export default function DetailsForm() {
         <Grid item xs={12}>
           <TextField
             name="comment"
-            defaultValue={checkout.comment}
+            defaultValue={user.comment}
             onChange={(e) => updateCheckout(e, "comment")}
             label={t("comment")}
             fullWidth
@@ -71,7 +71,7 @@ export default function DetailsForm() {
           <TextField
             required
             name="city"
-            defaultValue={checkout.city}
+            defaultValue={user.city}
             onChange={(e) => updateCheckout(e, "city")}
             label={t("city")}
             fullWidth
@@ -80,7 +80,7 @@ export default function DetailsForm() {
         <Grid item xs={12} sm={6}>
           <TextField
             name="region"
-            defaultValue={checkout.region}
+            defaultValue={user.region}
             onChange={(e) => updateCheckout(e, "region")}
             label={t("region")}
             fullWidth
@@ -93,7 +93,10 @@ export default function DetailsForm() {
                 <Trans>choosePaymentMethod</Trans>
               </Typography>
             </FormLabel>
-            <RadioGroup value={checkout.payment} onChange={e=>updateCheckout(e, "payment")}>
+            <RadioGroup
+              value={user.payment}
+              onChange={(e) => updateCheckout(e, "payment")}
+            >
               <FormControlLabel
                 value={"cash"}
                 control={<Radio />}

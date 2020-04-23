@@ -7,13 +7,11 @@ import {
 
 export const orderInitialState = JSON.parse(localStorage.getItem("order")) || {
   size: "medium",
-  checkout: {},
+  user: {},
   additional: [],
   fillings: [],
   sauces: [],
 };
-
-console.log("orderInitialState", orderInitialState);
 
 export const ORDER_ACTIONS = {
   UPDATE_PIZZA_SIZE: "UPDATE_PIZZA_SIZE",
@@ -43,7 +41,7 @@ const orderReducer = (prevState, action) => {
         };
       case ORDER_ACTIONS.ADD_PIZZA_INGRIDIENT:
         newState = addIngridient(prevState, action.payload);
-        totals = calculateTotals(newState);
+        totals = calculateTotals({ ...prevState, ...newState });
 
         return {
           ...prevState,
@@ -52,7 +50,7 @@ const orderReducer = (prevState, action) => {
         };
       case ORDER_ACTIONS.DELETE_PIZZA_INGRIDIENT:
         newState = deleteIngridient(prevState, action.payload);
-        totals = calculateTotals(newState);
+        totals = calculateTotals({ ...prevState, ...newState });
 
         return {
           ...prevState,
@@ -61,7 +59,7 @@ const orderReducer = (prevState, action) => {
         };
       case ORDER_ACTIONS.UPDATE_PIZZA_INGRIDIENT:
         newState = updateIngridient(prevState, action.payload);
-        totals = calculateTotals(newState);
+        totals = calculateTotals({ ...prevState, ...newState });
 
         return {
           ...prevState,
@@ -71,7 +69,7 @@ const orderReducer = (prevState, action) => {
       case ORDER_ACTIONS.UPDATE_CHECKOUT:
         return {
           ...prevState,
-          checkout: action.payload,
+          user: action.payload,
         };
       default:
         return prevState;
