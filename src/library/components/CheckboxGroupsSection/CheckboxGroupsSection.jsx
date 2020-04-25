@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
-import { Trans, useTranslation } from "react-i18next";
-import { Divider } from "@material-ui/core";
-import ConstructorContext from "../../../engine/ConstructorContext";
-import OrderContext from "../../../engine/OrderContext";
-import CheckboxGroup from "../CheckboxGroup";
-import { SectionWrapper } from "./styles";
+import React, { useContext } from 'react';
+import { Chip } from '@material-ui/core';
+import { Trans, useTranslation } from 'react-i18next';
+import { Divider } from '@material-ui/core';
+import ConstructorContext from '../../../engine/ConstructorContext';
+import OrderContext from '../../../engine/OrderContext';
+import CheckboxGroup from '../CheckboxGroup';
+import InfoBlock from '../../../library/components/InfoBlock';
+import { SectionWrapper, GreyText } from './styles';
 
-export default function CheckboxGroupsSection({ group, inputNumericMax }) {
+export default function CheckboxGroupsSection({ group, inputNumericMax, type }) {
   const [generalConstructor] = useContext(ConstructorContext);
   const [order] = useContext(OrderContext);
   const { t } = useTranslation();
@@ -37,15 +39,23 @@ export default function CheckboxGroupsSection({ group, inputNumericMax }) {
       />
     );
   });
+
+  const chipColor = (inputNumericMax - amount === 0 || group === 'additional') ? 'primary' : 'secondary';
   return (
     <>
-      <Trans>{group}</Trans>
-      <br />
-      <Trans>chosenAmount</Trans>
-      {inputNumericMax - amount}
-      <br />
-      <Trans>amountCapability</Trans>
-      {amount}
+      <InfoBlock>
+        <p>
+          <Trans>{group}</Trans>
+        </p>
+      </InfoBlock>
+      <GreyText>
+        <Trans>chosenAmount</Trans>
+        <Chip color={chipColor} size='small' label={inputNumericMax - amount}/>
+      </GreyText>
+      <GreyText>
+        <Trans>amountCapability</Trans>
+        <Chip color='primary' size='small' label={amount} />
+      </GreyText>
       <SectionWrapper>{CheckboxGroups}</SectionWrapper>
       <Divider />
     </>

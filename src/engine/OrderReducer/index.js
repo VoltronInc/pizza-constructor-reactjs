@@ -3,25 +3,26 @@ import {
   deleteIngridient,
   updateIngridient,
   calculateTotals,
-} from "./helpers";
+} from './helpers';
 
-export const orderInitialState = JSON.parse(localStorage.getItem("order")) || {
-  size: "medium",
-  user: {},
-  additional: [],
+const initialState = {
+  size: '',
   fillings: [],
   sauces: [],
+  additional: [],
+  user: {},
 };
 
-export const ORDER_ACTIONS = {
-  UPDATE_PIZZA_SIZE: "UPDATE_PIZZA_SIZE",
-  UPDATE_PIZZA_BASE: "UPDATE_PIZZA_BASE",
-  ADD_PIZZA_INGRIDIENT: "ADD_PIZZA_INGRIDIENT",
-  DELETE_PIZZA_INGRIDIENT: "DELETE_PIZZA_INGRIDIENT",
-  UPDATE_PIZZA_INGRIDIENT: "UPDATE_PIZZA_INGRIDIENT",
-  UPDATE_CHECKOUT: "UPDATE_CHECKOUT",
+export const orderInitialState = JSON.parse(localStorage.getItem('order')) || initialState;
 
-  CLEAR_PIZZA_INGRIDIENTS: "CLEAR_PIZZA_INGRIDIENTS",
+export const ORDER_ACTIONS = {
+  UPDATE_PIZZA_SIZE: 'UPDATE_PIZZA_SIZE',
+  UPDATE_PIZZA_BASE: 'UPDATE_PIZZA_BASE',
+  ADD_PIZZA_INGRIDIENT: 'ADD_PIZZA_INGRIDIENT',
+  DELETE_PIZZA_INGRIDIENT: 'DELETE_PIZZA_INGRIDIENT',
+  UPDATE_PIZZA_INGRIDIENT: 'UPDATE_PIZZA_INGRIDIENT',
+  UPDATE_CHECKOUT: 'UPDATE_CHECKOUT',
+  CLEAR_INGRIDIENTS: '',
 };
 
 const orderReducer = (prevState, action) => {
@@ -76,7 +77,7 @@ const orderReducer = (prevState, action) => {
     }
   })();
 
-  localStorage.setItem("order", JSON.stringify(newState));
+  localStorage.setItem('order', JSON.stringify(newState));
 
   return newState;
 };

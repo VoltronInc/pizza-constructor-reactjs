@@ -1,13 +1,15 @@
-import React, { useContext } from "react";
-import { Trans, useTranslation } from "react-i18next";
-import ConstructorContext from "../../engine/ConstructorContext";
-import OrderContext from "../../engine/OrderContext";
-import { ORDER_ACTIONS } from "../../engine/OrderReducer";
-import Template from "../../library/components/Template";
-import InfoBlock from "../../library/components/InfoBlock";
-import RadioGroup from "../../library/components/RadioGroup";
-import CheckboxGroupsSection from "../../library/components/CheckboxGroupsSection";
-import { Button } from "@material-ui/core";
+import React, { useContext } from 'react';
+import { Chip } from '@material-ui/core';
+import { Trans, useTranslation } from 'react-i18next';
+import ConstructorContext from '../../engine/ConstructorContext';
+import OrderContext from '../../engine/OrderContext';
+import { ORDER_ACTIONS } from '../../engine/OrderReducer';
+import Template from '../../library/components/Template';
+import InfoBlock from '../../library/components/InfoBlock';
+import RadioGroup from '../../library/components/RadioGroup';
+import CheckboxGroupsSection from '../../library/components/CheckboxGroupsSection';
+import { Button } from '@material-ui/core';
+import { TotalText, GreyText, RadioGroupsSection } from './styles';
 
 const getTotalAmount = (arr = []) => {
   return arr.map(({ portion }) => portion).reduce((sum, item) => sum + item, 0);
@@ -23,16 +25,15 @@ export default function Constructor(props) {
   const { size, sizeCM, ingridientsAmount } = pizzaData;
 
   const sizeRadioChoices = size.map((item) => ({
-    label: `${t(item)} (${sizeCM[item]} ${t("cm")})`,
+    label: `${t(item)} (${sizeCM[item]} ${t('cm')})`,
     value: item,
   }));
 
   const baseRadioChoices = base.map(({ name, weight, price }) => {
     weight = weight[order.size];
     price = price[order.size];
-
     return {
-      label: `${t(name)} (${weight}${t("g")}) ${price}${t("currency")}`,
+      label: `${t(name)} (${weight}${t('g')}) ${price}${t('currency')}`,
       value: { name, weight, price },
     };
   });
@@ -45,53 +46,59 @@ export default function Constructor(props) {
   const disableSubmit = !(allFillingsChose && allSaucesChose);
 
   return (
-    <Template title="constructorPage">
+    <Template title='constructorPage'>
       <InfoBlock>
-        <p>
+        <h3>
           <Trans>constructorPageDesc</Trans>
-        </p>
+        </h3>
       </InfoBlock>
-      <RadioGroup
-        radioArray={sizeRadioChoices}
-        dispatch={orderDispatch}
-        type={ORDER_ACTIONS.UPDATE_PIZZA_SIZE}
-        text="size"
-      />
-      <RadioGroup
-        radioArray={baseRadioChoices}
-        dispatch={orderDispatch}
-        type={ORDER_ACTIONS.UPDATE_PIZZA_BASE}
-        text="base"
-      />
+      <RadioGroupsSection>
+        <RadioGroup
+          radioArray={sizeRadioChoices}
+          dispatch={orderDispatch}
+          type={ORDER_ACTIONS.UPDATE_PIZZA_SIZE}
+          text='size'
+        />
+        <RadioGroup
+          radioArray={baseRadioChoices}
+          dispatch={orderDispatch}
+          type={ORDER_ACTIONS.UPDATE_PIZZA_BASE}
+          text='base'
+        />
+      </RadioGroupsSection>
       <CheckboxGroupsSection
-        group="fillings"
+        group='fillings'
         inputNumericMax={ingridientsAmount.fillings[order.size]}
+        type = {ORDER_ACTIONS.REDUCE_FILLINGS}
       />
       <CheckboxGroupsSection
-        group="sauces"
+        group='sauces'
         inputNumericMax={ingridientsAmount.sauces}
       />
       <CheckboxGroupsSection
-        group="additional"
+        group='additional'
         inputNumericMax={ingridientsAmount.additional}
       />
-      <Trans>totalWeight</Trans>
-      {order.totalWeight}
-      {t("g")}
-      <br />
-      <Trans>totalCoast</Trans>
-      {order.totalCoast}
-      {t("currency")}
+      <TotalText>
+        <Trans>totalWeight</Trans>
+        <Chip variant='outlined' color='primary' label={order.totalWeight + t('g')} />
+      </TotalText>
+      <TotalText>
+        <Trans>totalCoast</Trans>
+        <Chip  variant='outlined'color='primary' label={order.totalCoast + t('currency')} />
+      </TotalText>
       <br />
       {disableSubmit ? (
         <>
-          <Trans>chooseToSubmit</Trans>
-          <Button variant="contained" color="primary" disabled href="/checkout">
+          <GreyText>
+            <Trans>chooseToSubmit</Trans>
+          </GreyText>
+          <Button variant='contained' color='primary' disabled href='/checkout'>
             <Trans>next</Trans>
           </Button>
         </>
       ) : (
-        <Button variant="contained" color="primary" href="/checkout">
+        <Button variant='contained' color='primary' href='/checkout'>
           <Trans>next</Trans>
         </Button>
       )}
