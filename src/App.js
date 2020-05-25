@@ -23,7 +23,7 @@ const App = () => {
   );
 
   useMemo(async () => {
-    const response = await fetch(process.env.REACT_APP_API_GET_INGRIDIENTS);
+    const response = await fetch('http://35.214.69.92:8080/ingridient/');
     const payload = await response.json();
     appDispatch({
       type: APP_ACTIONS.UPDATE_RECIEVED_DATA,

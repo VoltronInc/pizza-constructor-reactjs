@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Trans } from "react-i18next";
 import {
   FormControl,
@@ -9,6 +9,11 @@ import {
 } from "@material-ui/core";
 
 export default function CustomRadioGroup({ radioArray, dispatch, type, text }) {
+  useEffect(() => {
+    const payload = radioArray[1].value;
+    dispatch({ type, payload });
+  }, []);
+
   const handleChange = (e) => {
     e.stopPropagation();
     const payload = radioArray[+e.target.value].value;

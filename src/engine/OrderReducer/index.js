@@ -6,11 +6,14 @@ import {
 } from './helpers';
 
 const initialState = {
-  size: '',
+  size: 'medium',
   fillings: [],
   sauces: [],
+  base: [],
   additional: [],
   user: {},
+  totalWeight: 0,
+  totalCoast: 0,
 };
 
 export const orderInitialState = JSON.parse(localStorage.getItem('order')) || initialState;
