@@ -4,7 +4,7 @@ export const appInitialState = {
     size: ["small", "medium", "large"],
     sizeCM: { small: 25, medium: 30, large: 35 },
     ingridientsAmount: {
-      fillings: { small: 12, medium: 15, large: 18 },
+      fillings: { small: 1, medium: 1, large: 1 },
       base: 1,
       sauces: 3,
       additional: 2,
