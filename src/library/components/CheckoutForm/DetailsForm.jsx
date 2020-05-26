@@ -27,11 +27,12 @@ export default function DetailsForm() {
       <Typography variant="h6" gutterBottom>
         <Trans>shippingAddress</Trans>
       </Typography>
-        <form className='checkout-form' autoComplete="off">
+        <form className='checkout-form'  id='checkout-form' autoComplete="off">
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <TextField
             name="firstName"
+            form="checkout-form"
             defaultValue={user.firstName}
             onChange={(e) => updateCheckout(e, "firstName")}
             label={t("firstName")}
@@ -43,6 +44,7 @@ export default function DetailsForm() {
           <TextField
             required
             name="lastName"
+            form="checkout-form"
             defaultValue={user.lastName}
             onChange={(e) => updateCheckout(e, "lastName")}
             label={t("lastName")}
@@ -53,6 +55,7 @@ export default function DetailsForm() {
           <TextField
             required
             name="address"
+            form="checkout-form"
             defaultValue={user.address}
             onChange={(e) => updateCheckout(e, "address")}
             label={t("address")}
@@ -63,6 +66,7 @@ export default function DetailsForm() {
               <TextField
                   required
                   name="telephone"
+                  form="checkout-form"
                   defaultValue={user.telephone}
                   onChange={(e) => updateCheckout(e, "telephone")}
                   label={t("telephone")}
@@ -72,6 +76,7 @@ export default function DetailsForm() {
         <Grid item xs={12}>
           <TextField
             name="comment"
+            form="checkout-form"
             defaultValue={user.comment}
             onChange={(e) => updateCheckout(e, "comment")}
             label={t("comment")}
@@ -82,6 +87,7 @@ export default function DetailsForm() {
           <TextField
             required
             name="city"
+            form="checkout-form"
             defaultValue={user.city}
             onChange={(e) => updateCheckout(e, "city")}
             label={t("city")}
@@ -93,6 +99,7 @@ export default function DetailsForm() {
             name="region"
             defaultValue={user.region}
             onChange={(e) => updateCheckout(e, "region")}
+            form="checkout-form"
             label={t("region")}
             fullWidth
           />

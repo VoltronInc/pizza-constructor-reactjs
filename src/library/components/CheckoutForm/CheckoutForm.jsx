@@ -125,6 +125,8 @@ export default function Checkout() {
                       color="primary"
                       onClick={handlePlaceOrder}
                       className={classes.button}
+                      type="submit"
+                      form="checkout-form"
                     >
                       <Trans>placeOrder</Trans>
                     </Button>
