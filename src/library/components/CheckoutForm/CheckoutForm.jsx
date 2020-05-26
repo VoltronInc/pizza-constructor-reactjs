@@ -15,12 +15,12 @@ import { useCheckoutStyles } from "./styles";
 
 const steps = ["reviewYourOrder", "details"];
 
-function getStepContent(step) {
+function getStepContent(step, disableNext, setDisableNext) {
   switch (step) {
     case 0:
       return <ReviewPizza />;
     case 1:
-      return <DetailsForm />;
+      return <DetailsForm disableNext={disableNext} setDisableNext={setDisableNext} />;
     default:
       throw new Error("Unknown step");
   }
@@ -36,6 +36,10 @@ const OrderSubmited = ({ orderNumber }) => (
       {orderNumber}
       <br />
       <Trans>confirmationDetails</Trans>
+      <br />
+      <Button variant="contained" color="primary" href="/">
+        <Trans>homePageButton</Trans>
+      </Button>
     </Typography>
   </>
 );
@@ -49,6 +53,7 @@ export default function Checkout() {
   const classes = useCheckoutStyles();
   const [activeStep, setActiveStep] = useState(0);
   const [orderNumber, setOrderNumber] = useState(0);
+  const [disableNext, setDisableNext] = useState(true);
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -61,6 +66,8 @@ export default function Checkout() {
   const handlePlaceOrder = async () => {
     const orderData = formatOrder(order);
 
+
+
     try {
       // const response = await fetch("http://35.214.69.92:8080/checkout/", {
       //   method: "POST",
@@ -72,6 +79,7 @@ export default function Checkout() {
       // const data = await response.json();
 
       // if (!data?.orderNumber) throw new Error("Place order fails");
+
       const data = {
         orderNumber: randomInt(100000, 999999),
       }
@@ -106,7 +114,7 @@ export default function Checkout() {
               <OrderSubmited orderNumber={orderNumber} />
             ) : (
               <>
-                {getStepContent(activeStep)}
+                {getStepContent(activeStep, disableNext, setDisableNext )}
                 <div className={classes.buttons}>
                   {activeStep !== 0 ? (
                     <Button onClick={handleBack} className={classes.button}>
@@ -123,6 +131,7 @@ export default function Checkout() {
                       color="primary"
                       onClick={handlePlaceOrder}
                       className={classes.button}
+                      disabled={disableNext}
                     >
                       <Trans>placeOrder</Trans>
                     </Button>
@@ -135,6 +144,7 @@ export default function Checkout() {
                     >
                       <Trans>next</Trans>
                     </Button>
+
                   )}
                 </div>
               </>
