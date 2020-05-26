@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { Redirect } from '@reach/router';
 import { Trans } from "react-i18next";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Paper from "@material-ui/core/Paper";
@@ -10,6 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import DetailsForm from "./DetailsForm";
 import ReviewPizza from "./ReviewPizza";
 import OrderContext from "../../../engine/OrderContext";
+import ConstructorContext from "../../../engine/ConstructorContext"
 import { formatOrder } from "./helpers";
 import { useCheckoutStyles } from "./styles";
 
@@ -50,6 +52,7 @@ function randomInt(min, max) {
 
 export default function Checkout() {
   const [order] = useContext(OrderContext);
+  const [constructor] = useContext(ConstructorContext);
   const classes = useCheckoutStyles();
   const [activeStep, setActiveStep] = useState(0);
   const [orderNumber, setOrderNumber] = useState(0);
@@ -91,6 +94,12 @@ export default function Checkout() {
       throw new Error("Error during placing order");
     }
   };
+
+  const isValidOrder =
+  constructor.pizzaData.ingridientsAmount.fillings[order.size] === order.fillings.map(({ portion }) => portion).reduce((sum, item) => sum + item, 0)
+  && constructor.pizzaData.ingridientsAmount.sauces ===  order.sauces.map(({ portion }) => portion).reduce((sum, item) => sum + item, 0);
+
+  if(!isValidOrder) return <Redirect noThrow={true} to='/constructor' />
 
   return (
     <>

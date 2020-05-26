@@ -6,6 +6,7 @@ import {
 } from './helpers';
 
 const initialState = {
+  valid: false,
   size: 'medium',
   fillings: [],
   sauces: [],
@@ -25,6 +26,7 @@ export const ORDER_ACTIONS = {
   DELETE_PIZZA_INGRIDIENT: 'DELETE_PIZZA_INGRIDIENT',
   UPDATE_PIZZA_INGRIDIENT: 'UPDATE_PIZZA_INGRIDIENT',
   UPDATE_CHECKOUT: 'UPDATE_CHECKOUT',
+  SET_VALID: 'SET_VALID',
   CLEAR_INGRIDIENTS: '',
 };
 
@@ -36,12 +38,19 @@ const orderReducer = (prevState, action) => {
       case ORDER_ACTIONS.UPDATE_PIZZA_SIZE:
         return {
           ...prevState,
+          valid: false,
           size: action.payload,
         };
+      case ORDER_ACTIONS.SET_VALID:
+         return {
+           ...prevState,
+           valid: true
+         }
       case ORDER_ACTIONS.UPDATE_PIZZA_BASE:
         return {
           ...prevState,
           base: [action.payload],
+          valid: false,
         };
       case ORDER_ACTIONS.ADD_PIZZA_INGRIDIENT:
         newState = addIngridient(prevState, action.payload);
@@ -51,6 +60,7 @@ const orderReducer = (prevState, action) => {
           ...prevState,
           ...newState,
           ...totals,
+          valid: false,
         };
       case ORDER_ACTIONS.DELETE_PIZZA_INGRIDIENT:
         newState = deleteIngridient(prevState, action.payload);
@@ -60,6 +70,7 @@ const orderReducer = (prevState, action) => {
           ...prevState,
           ...newState,
           ...totals,
+          valid: false,
         };
       case ORDER_ACTIONS.UPDATE_PIZZA_INGRIDIENT:
         newState = updateIngridient(prevState, action.payload);
@@ -69,11 +80,13 @@ const orderReducer = (prevState, action) => {
           ...prevState,
           ...newState,
           ...totals,
+          valid: false,
         };
       case ORDER_ACTIONS.UPDATE_CHECKOUT:
         return {
           ...prevState,
           user: action.payload,
+          valid: false,
         };
       default:
         return prevState;
