@@ -61,6 +61,8 @@ export default function Checkout() {
   const handlePlaceOrder = async () => {
     const orderData = formatOrder(order);
 
+
+
     try {
       // const response = await fetch("http://35.214.69.92:8080/checkout/", {
       //   method: "POST",
@@ -135,11 +137,15 @@ export default function Checkout() {
                     >
                       <Trans>next</Trans>
                     </Button>
+
                   )}
                 </div>
               </>
             )}
           </>
+            <Button href="/">
+                <Trans>homePageButton</Trans>
+            </Button>
         </Paper>
       </main>
     </>

@@ -27,15 +27,16 @@ export default function DetailsForm() {
       <Typography variant="h6" gutterBottom>
         <Trans>shippingAddress</Trans>
       </Typography>
+        <form className='checkout-form' autoComplete="off">
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <TextField
-            required
             name="firstName"
             defaultValue={user.firstName}
             onChange={(e) => updateCheckout(e, "firstName")}
             label={t("firstName")}
             fullWidth
+            required
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -58,6 +59,16 @@ export default function DetailsForm() {
             fullWidth
           />
         </Grid>
+          <Grid item xs={12} sm={6}>
+              <TextField
+                  required
+                  name="telephone"
+                  defaultValue={user.telephone}
+                  onChange={(e) => updateCheckout(e, "telephone")}
+                  label={t("telephone")}
+                  fullWidth
+              />
+          </Grid>
         <Grid item xs={12}>
           <TextField
             name="comment"
@@ -111,6 +122,7 @@ export default function DetailsForm() {
           </FormControl>
         </Grid>
       </Grid>
+        </form>
     </>
   );
 }
