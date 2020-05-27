@@ -14,7 +14,6 @@ import OrderContext from "../../../engine/OrderContext";
 import { ORDER_ACTIONS } from "../../../engine/OrderReducer";
 
 export default function DetailsForm({ disableNext, setDisableNext }) {
-  console.log({ disableNext, setDisableNext })
   const [order, dispatch] = useContext(OrderContext);
   const { user } = order;
   const { t } = useTranslation();

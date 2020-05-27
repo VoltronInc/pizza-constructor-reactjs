@@ -96,8 +96,8 @@ export default function Checkout() {
   };
 
   const isValidOrder =
-  constructor.pizzaData.ingridientsAmount.fillings[order.size] === order.fillings.map(({ portion }) => portion).reduce((sum, item) => sum + item, 0)
-  && constructor.pizzaData.ingridientsAmount.sauces ===  order.sauces.map(({ portion }) => portion).reduce((sum, item) => sum + item, 0);
+  constructor.pizzaData.ingridientsAmount.minFillings[order.size] <= order.fillings.map(({ portion }) => portion).reduce((sum, item) => sum + item, 0)
+  && constructor.pizzaData.ingridientsAmount.minSauces <=  order.sauces.map(({ portion }) => portion).reduce((sum, item) => sum + item, 0);
 
   if(!isValidOrder) return <Redirect noThrow={true} to='/constructor' />
 
