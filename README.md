@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * **npm >= 6.**
 
 ## Use:
-- to setup a mysql db, from src folder run **export REACT_APP_API_GET_INGRIDIENTS='full_url__to_ingridients'**
+- to setup a mysql db, from src folder run **export REACT_APP_API_GET_INGRIDIENTS='full_url_to_ingridients'**
 ```
 1. Hardcode API endoint in src/App.js or out it in env variable
 2. npm install && npm run build
